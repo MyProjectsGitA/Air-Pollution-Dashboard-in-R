@@ -1,75 +1,161 @@
-Project Overview
+# Environmental Impact Dashboard
 
-This project is structured into four components and leverages data visualization and statistical exploration techniques in R Shiny to analyze relationships between air pollution, climate change, forest coverage, and human health outcomes. The goal is to provide interactive insights into how these environmental factors interrelate across global regions, especially in large and industrially significant countries.
+## Project Overview
 
-Data Sources
-Our World in Data – https://ourworldindata.org/air-pollution
+This project analyzes the relationships between air pollution, climate change, forest coverage, and human health using **R Shiny**. Through interactive visualizations and statistical exploration, users can examine how environmental factors influence one another across countries and over time.
 
-Our World in Data (Air Pollution Risk Factors for Death Analysis) – https://ourworldindata.org/air-pollution#air-pollution-is-one-of-the-world-s-leading-risk-factors-for-death
+The analysis focuses on:
+- Air Quality Index (AQI)
+- Air pollution-related mortality
+- Annual surface temperature change
+- Forest area coverage
 
-IMF Climate Data – https://climatedata.imf.org/pages/climatechange-data
+Special emphasis is placed on the **30 largest countries by land area** and the **G20 nations**, allowing users to compare environmental trends among globally significant economies.
 
-Worldometers (Largest Countries by Land Area) – https://www.worldometers.info/geography/largest-countries-in-the-world/
+---
 
-1. Data Preparation and Cleaning
+# Data Sources
 
-Datasets Used
-Air Quality Index (AQI) values from a global air pollution dataset.
-Death percentages attributable to air pollution from the Our World in Data repository.
-Annual surface temperature change sourced from the IMF climate dataset.
-Forest area share from a global forestry dataset.
+- **Our World in Data – Air Pollution**
+  - https://ourworldindata.org/air-pollution
 
-Cleaning and Transformation Steps
+- **Our World in Data – Air Pollution Risk Factors for Death**
+  - https://ourworldindata.org/air-pollution#air-pollution-is-one-of-the-world-s-leading-risk-factors-for-death
 
-Removed rows with missing (NA) values to ensure data accuracy.
-Standardized inconsistent country names across datasets to enable proper merging.
-Converted year columns from wide to long format using pivot_longer() for time-series analysis.
-Filtered datasets to include:
-The 30 largest countries by land area for general comparisons.
-The G20 nations for focused analysis of major industrial economies.
-Calculated country-level averages (e.g., average AQI and average forest coverage) for comparison.
+- **IMF Climate Data**
+  - https://climatedata.imf.org/pages/climatechange-data
 
-2. Exploratory Analysis and Aggregation in R
+- **Worldometers – Largest Countries by Land Area**
+  - https://www.worldometers.info/geography/largest-countries-in-the-world/
 
-Summary Statistics Computed
-Average AQI values across the 30 largest countries.
-Average forest coverage percentage by country.
-Air pollution-related death percentages over time for G20 nations.
-Surface temperature change trends aligned with mortality rates.
-Merged Datasets
-Combined temperature change and air pollution death rates by country and year to explore potential relationships.
-Combined forest area share and AQI values to evaluate the impact of forest coverage on air pollution.
+---
 
-3. Interactive Dashboard in R Shiny
+# 1. Data Preparation and Cleaning
 
-The R Shiny dashboard was developed using shinydashboard, ggplot2, and plotly to enable interactive exploration. It features seven visualizations organized into sidebar menu tabs.
+## Datasets Used
 
-Dashboard Visualizations
+- Global Air Quality Index (AQI) dataset
+- Air pollution mortality dataset from Our World in Data
+- Annual surface temperature change dataset from the IMF
+- Global forest area coverage dataset
 
-AQI Bar Chart – Displays average AQI by country for the 30 largest countries.
-Death Percentage Over Time – Line chart showing air pollution mortality trends among G20 countries.
-Temperature vs. Death Percentage – Scatter plot examining the relationship between surface temperature changes and pollution-related deaths.
-Forest Coverage Bar Chart – Compares average forest area share across the 30 largest countries.
-AQI vs. Forest Coverage Scatter Plot – Explores the relationship between forest coverage and air pollution.
-Top AQI Selector – Slider-controlled visualization displaying the countries with the highest AQI values.
-Top Forest Coverage Selector – Numeric input allowing users to visualize countries with the greatest forest area.
+## Data Cleaning and Transformation
 
-4. Key Insights and Interpretations
+The following preprocessing steps were performed before analysis:
 
-Countries such as India, Saudi Arabia, Pakistan, and Mauritania exhibit high AQI levels alongside relatively low forest coverage, reinforcing the relationship between deforestation and air pollution.
-G20 nations have shown relatively stable pollution-related death percentages over the past 30 years despite global environmental initiatives, suggesting additional policy improvements may be needed.
-Countries including Canada and Germany maintain relatively low pollution-related mortality despite moderate temperature increases, indicating that healthcare infrastructure and environmental policies also play important roles.
-Scatter plot analysis reveals only a partial relationship between temperature change, air pollution, and mortality, highlighting the multifactorial nature of climate and public health outcomes.
-The dashboard enables users to interactively compare environmental indicators across countries and years, supporting deeper exploratory analysis.
+- Removed rows containing missing (`NA`) values.
+- Standardized country names across all datasets to enable accurate merging.
+- Converted year columns from wide to long format using `pivot_longer()`.
+- Filtered data to include:
+  - The 30 largest countries by land area.
+  - The G20 nations.
+- Calculated country-level averages for AQI and forest coverage.
+- Prepared datasets for visualization and statistical comparison.
 
-6. Project Files
+---
 
-Below is a list of files included in this project. To run the analysis script, download all files and update the file paths as needed. A PDF version of the dashboard output is also included for reference.
+# 2. Exploratory Data Analysis
 
-Environmental_Impact_Dashboard.R – Main R script used to develop the project in RStudio.
-Shiny_App_Visualizations_Summary.pdf – PDF containing all dashboard visualizations and a summary of the interactive Shiny application.
-Forest_and_Carbon.csv – Dataset containing forest coverage and carbon emission data.
-Global_Air_Pollution_Dataset.csv – Dataset containing global air pollution indicators.
-Share_Deaths_Air_Pollution.csv – Dataset containing air pollution-related mortality statistics.
-Annual_Surface_Temperature_Change.csv – Dataset containing annual surface temperature changes by country.
-README.pdf – PDF version of this README document.
+Summary statistics were generated to better understand global environmental trends.
+
+### Analyses Performed
+
+- Average AQI values for the 30 largest countries.
+- Average forest coverage by country.
+- Air pollution-related death percentages over time for G20 countries.
+- Surface temperature change trends.
+- Country-by-country environmental comparisons.
+
+### Dataset Integration
+
+Multiple datasets were merged to examine relationships between environmental indicators.
+
+- Temperature change and pollution-related mortality were merged by country and year.
+- Forest coverage and AQI data were combined to explore the relationship between forestation and air quality.
+
+---
+
+# 3. Interactive R Shiny Dashboard
+
+The dashboard was developed using:
+
+- **R Shiny**
+- **shinydashboard**
+- **ggplot2**
+- **plotly**
+
+The application enables users to interactively explore environmental indicators through seven visualizations.
+
+## Dashboard Visualizations
+
+### AQI by Country
+Displays the average Air Quality Index for the 30 largest countries.
+
+### Air Pollution Death Percentage Over Time
+Shows trends in pollution-related mortality across G20 nations.
+
+### Temperature Change vs. Death Percentage
+Scatter plot illustrating the relationship between annual temperature change and pollution-related deaths.
+
+### Forest Coverage by Country
+Compares average forest area share among the 30 largest countries.
+
+### AQI vs. Forest Coverage
+Scatter plot examining the relationship between forest coverage and air pollution.
+
+### Top AQI Countries
+Interactive slider allowing users to display the countries with the highest AQI values.
+
+### Top Forest Coverage Countries
+Interactive selector displaying countries with the greatest forest area.
+
+---
+
+# 4. Key Findings
+
+The analysis revealed several notable patterns.
+
+- Countries such as **India**, **Saudi Arabia**, **Pakistan**, and **Mauritania** tend to exhibit high AQI values alongside relatively low forest coverage.
+- Pollution-related mortality within G20 countries has remained relatively stable over the past three decades despite increasing environmental awareness.
+- Countries including **Canada** and **Germany** maintain comparatively low pollution-related mortality despite moderate temperature increases, suggesting that healthcare systems and environmental policies also contribute to improved outcomes.
+- Scatter plot analysis indicates that temperature change alone does not fully explain pollution-related mortality, highlighting the complex interaction between environmental and socioeconomic factors.
+- The interactive dashboard allows users to explore these relationships dynamically across countries and time periods.
+
+---
+
+# 5. Project Files
+
+To reproduce the analysis, download all project files and update the file paths in the R script as needed.
+
+| File | Description |
+|------|-------------|
+| **Environmental_Impact_Dashboard.R** | Main R script used to clean, analyze, and visualize the data. |
+| **Shiny_App_Visualizations_Summary.pdf** | PDF containing screenshots and summaries of all dashboard visualizations. |
+| **Forest_and_Carbon.csv** | Forest coverage and carbon emissions dataset. |
+| **Global_Air_Pollution_Dataset.csv** | Global Air Quality Index dataset. |
+| **Share_Deaths_Air_Pollution.csv** | Air pollution mortality dataset. |
+| **Annual_Surface_Temperature_Change.csv** | Annual surface temperature change dataset by country. |
+| **README.pdf** | PDF version of this project documentation. |
+
+---
+
+# Technologies Used
+
+- R
+- RStudio
+- R Shiny
+- shinydashboard
+- ggplot2
+- plotly
+- dplyr
+- tidyr
+
+---
+
+# Author
+
+**Amirani Kvariani**
+
+M.S. Business Administration (Business Intelligence & Data Analytics)
+
+Brooklyn College, City University of New York
