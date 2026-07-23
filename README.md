@@ -55,13 +55,14 @@ Top AQI Selector – Slider-controlled visualization displaying the countries wi
 Top Forest Coverage Selector – Numeric input allowing users to visualize countries with the greatest forest area.
 
 4. Key Insights and Interpretations
+
 Countries such as India, Saudi Arabia, Pakistan, and Mauritania exhibit high AQI levels alongside relatively low forest coverage, reinforcing the relationship between deforestation and air pollution.
 G20 nations have shown relatively stable pollution-related death percentages over the past 30 years despite global environmental initiatives, suggesting additional policy improvements may be needed.
 Countries including Canada and Germany maintain relatively low pollution-related mortality despite moderate temperature increases, indicating that healthcare infrastructure and environmental policies also play important roles.
 Scatter plot analysis reveals only a partial relationship between temperature change, air pollution, and mortality, highlighting the multifactorial nature of climate and public health outcomes.
 The dashboard enables users to interactively compare environmental indicators across countries and years, supporting deeper exploratory analysis.
 
-5. Project Files
+6. Project Files
 
 Below is a list of files included in this project. To run the analysis script, download all files and update the file paths as needed. A PDF version of the dashboard output is also included for reference.
 
